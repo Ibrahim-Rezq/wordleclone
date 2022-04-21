@@ -1,0 +1,4 @@
+const Game = {
+  gusses: [],
+  word: '',
+};
