@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #222;
+    background-color: hsl(212, 33%, 89%);
 }
 .container {
     padding: 2rem;
@@ -22,14 +22,14 @@ body {
 }
 .game .letter {
     position: relative;
-    background-color: #555;
-    border: 2px solid #aaa;
+    background-color: hsl(210, 31%, 80%);
+    border: 2px solid hsl(210, 22%, 49%);
     width: 3rem;
     height: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: hsl(205, 86%, 17%);
 }
 .keys {
     display: flex;
@@ -44,13 +44,14 @@ body {
     margin: 0.1rem;
 }
 .key {
+    color: hsl(205, 86%, 17%);
     display: flex;
     justify-content: center;
     align-items: center;
     width: 2.8rem;
     height: 2.8rem;
     margin: 0.1rem;
-    background-color: #aaa;
+    background-color: hsl(205, 78%, 60%);
     border-radius: 0.25rem;
     transition: background 0.2s ease-in-out;
 }
@@ -60,10 +61,11 @@ body {
 }
 
 .key:hover {
-    background: #0a9c2d;
+    background: hsl(205, 63%, 48%);
 }
 .key:active {
-    background: red;
+    background: hsl(209, 61%, 16%);
+    color: hsl(205, 78%, 60%);
     transform: scale(0.9);
 }
 @media (max-width: 768px) {
