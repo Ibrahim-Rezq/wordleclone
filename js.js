@@ -1,5 +1,6 @@
 const letters = document.querySelectorAll('.letter');
 const keys = document.querySelectorAll('.key');
+const restart = document.querySelector('.restart');
 
 const words = ['panda', 'super', 'words', 'islam', 'smile', 'party'];
 
@@ -40,16 +41,16 @@ class Game {
         this.currGusse
           .map((gusse, i) => {
             setTimeout(() => {
-              gusse.squre.className += ' go';
+              gusse.squre.classList.add('go');
             }, 50 * i);
             console.log(this.word);
             if (this.word.indexOf(gusse.letter) != -1) {
               if (this.word.indexOf(gusse.letter) == i) {
-                gusse.squre.style.background = 'hsl(125, 67%, 44%)';
-                gusse.elem.style.background = 'hsl(125, 67%, 44%)';
+                gusse.squre.classList.add('hot');
+                gusse.elem.classList.add('hot');
               } else {
-                gusse.elem.style.background = 'hsl(13, 88%, 68%)';
-                gusse.squre.style.background = 'hsl(13, 88%, 68%)';
+                gusse.squre.classList.add('cold');
+                gusse.elem.classList.add('cold');
               }
             }
             return gusse.letter;
@@ -69,7 +70,21 @@ class Game {
   getRow = function () {
     return this.currBox + this.gusses.length * 5;
   };
+  init = function () {
+    this.gusses = [];
+    this.currGusse = [];
+    this.word = words[getRandomInt(words.length - 1)];
+    this.currBox = 0;
+    letters.forEach((letter) => {
+      letter.textContent = '';
+      letter.classList.remove('go', 'hot', 'cold');
+    });
+    keys.forEach((key) => {
+      key.classList.remove('hot', 'cold');
+    });
+  };
 }
+
 const getRandom = (max = 1, min = 0) => {
   return Math.random() * (max - min) + min;
 };
@@ -78,7 +93,6 @@ const getRandomInt = (max = 1, min = 0) => {
 };
 
 const game = new Game(words[getRandomInt(words.length - 1)]);
-console.log(game.word);
 
 const handelKeyClick = (e) => {
   const val = e.target.textContent;
@@ -101,4 +115,8 @@ const handelKeyClick = (e) => {
 
 keys.forEach((key) => {
   key.addEventListener('click', handelKeyClick);
+});
+
+restart.addEventListener('click', () => {
+  game.init();
 });

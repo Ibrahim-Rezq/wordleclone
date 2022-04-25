@@ -1,86 +1,113 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 body {
-    background-color: hsl(212, 33%, 89%);
+  background-color: hsl(212, 33%, 89%);
 }
 .container {
-    padding: 2rem;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
 }
 .game {
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    gap: 0.1rem 0.3rem;
-    justify-content: center;
-    align-items: center;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 0.1rem 0.3rem;
+  justify-content: center;
+  align-items: center;
 }
 .game .letter {
-    position: relative;
-    background-color: hsl(210, 31%, 80%);
-    border: 2px solid hsl(210, 22%, 49%);
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: hsl(205, 86%, 17%);
+  position: relative;
+  background-color: hsl(210, 31%, 80%);
+  border: 2px solid hsl(210, 22%, 49%);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(205, 86%, 17%);
+  transition: background 0.2s ease-in-out;
 }
 .keys {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 1rem;
-    /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  /* background-color: blue; */
 }
 .row {
-    display: flex;
-    margin: 0.1rem;
+  display: flex;
+  margin: 0.1rem;
 }
 .key {
-    color: hsl(205, 86%, 17%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2.8rem;
-    height: 2.8rem;
-    margin: 0.1rem;
-    background-color: hsl(205, 78%, 60%);
-    border-radius: 0.25rem;
-    transition: background 0.2s ease-in-out;
+  color: hsl(205, 86%, 17%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin: 0.1rem;
+  background-color: hsl(205, 78%, 60%);
+  border-radius: 0.25rem;
+  transition: background 0.2s ease-in-out;
 }
 .key.enter,
 .key.del {
-    width: 4rem;
+  width: 4rem;
 }
 
 .key:hover {
-    background: hsl(205, 63%, 48%);
+  background: hsl(205, 63%, 48%);
 }
 .key:active {
-    background: hsl(209, 61%, 16%);
-    color: hsl(205, 78%, 60%);
-    transform: scale(0.9);
+  background: hsl(209, 61%, 16%);
+  color: hsl(205, 78%, 60%);
+  transform: scale(0.9);
+}
+.restart {
+  margin: auto;
+  background-color: red;
+  padding: 1rem 1.25rem;
+  border: none;
+  border-radius: 0.25rem;
+  background: hsl(209, 61%, 16%);
+  color: hsl(205, 78%, 60%);
+  transition: background 0.2s ease-in-out;
+}
+.restart:hover {
+  background: hsl(205, 86%, 17%);
+}
+.restart:active {
+  background: hsl(205, 63%, 48%);
+  color: hsl(209, 61%, 16%);
+  transform: scale(0.9);
+}
+.key.cold,
+.letter.cold {
+  background: hsl(13, 88%, 68%);
+}
+.key.hot,
+.letter.hot {
+  background: hsl(125, 67%, 44%);
 }
 @media (max-width: 768px) {
-    * {
-        font-size: 12px;
-    }
+  * {
+    font-size: 12px;
+  }
 }
 .go {
-    animation: flip 0.3s;
+  animation: flip 0.3s;
 }
 @keyframes flip {
-    0% {
-        transform: rotateX(0deg);
-    }
-    0% {
-        transform: rotateX(180deg);
-    }
+  0% {
+    transform: rotateX(0deg);
+  }
+  0% {
+    transform: rotateX(180deg);
+  }
 }
